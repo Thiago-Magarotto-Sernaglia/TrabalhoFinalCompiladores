@@ -329,7 +329,7 @@ public class parser extends java_cup.runtime.lr_parser {
   private Hashtable<String,TabelaSimbolo> dicionario = new Hashtable<String,TabelaSimbolo>();
   private int pos = 0;
 
-  /* emitir código C */
+  /* emitir c??digo C */
 
     public void emit_program(){
        System.out.print("#include <stdio.h>\n");
@@ -367,7 +367,7 @@ public class parser extends java_cup.runtime.lr_parser {
        format_code(pos); 
 
        if(dicionario.containsKey(id)){
-        report_fatal_error("Variável duplicada [" + id + "]",null);
+        report_fatal_error("Vari??vel duplicada [" + id + "]",null);
        }
         else {  
         if(tipo.equals("INT")) {
@@ -385,7 +385,7 @@ public class parser extends java_cup.runtime.lr_parser {
       format_code(pos); 
 
       if(dicionario.containsKey(id)){
-        report_fatal_error("Variável duplicada [" + id + "]",null);
+        report_fatal_error("Vari??vel duplicada [" + id + "]",null);
       } else {  
         if(tipo.equals("INT")) {
             System.out.print("int " + id);
@@ -402,7 +402,7 @@ public class parser extends java_cup.runtime.lr_parser {
         format_code(pos); 
 
         if(! dicionario.containsKey(id)){
-            report_fatal_error("Variável não declarada [" + id + "]",null);
+            report_fatal_error("Vari??vel n??o declarada [" + id + "]",null);
         }
         System.out.print(id + "=" + value); 
     }
@@ -411,19 +411,19 @@ public class parser extends java_cup.runtime.lr_parser {
 
         format_code(pos);  
 
-     TabelaSimbolo t1 = dicionario.get(id);  
-      if(t1 == null) {
-         report_fatal_error("Variável não declarada [" + id + "]",null);
-      }  
+        TabelaSimbolo t1 = dicionario.get(id);  
+        if(t1 == null) {
+          report_fatal_error("Vari??vel n??o declarada [" + id + "]",null);
+        }  
 
-      String tipo = t1.getTipo();
+        String tipo = t1.getTipo();
 
-         if(tipo.equals("INT")) {
-           System.out.print("printf(\"\\n%d\"," + id + ")") ;
-         } else {
-            System.out.print("printf(\"\\n%f\"," + id + ")") ;
-         }   
-      }
+        if(tipo.equals("INT")) {
+          System.out.print("printf(\"\\n%d\"," + id + ")") ;
+        } else {
+          System.out.print("printf(\"\\n%f\"," + id + ")") ;
+        }   
+    }
 
     public void emit_leia(String id){
 
@@ -431,7 +431,7 @@ public class parser extends java_cup.runtime.lr_parser {
 
       TabelaSimbolo t1 = dicionario.get(id);  
       if(t1 == null) {
-         report_fatal_error("Variável não declarada [" + id + "]",null);
+         report_fatal_error("Vari??vel n??o declarada [" + id + "]",null);
       }    
 
         String tipo = t1.getTipo();
@@ -461,7 +461,7 @@ public class parser extends java_cup.runtime.lr_parser {
       format_code(pos); 
       TabelaSimbolo t1 = dicionario.get(id);  
       if(t1 == null) {
-         report_fatal_error("Variável não declarada [" + id + "]",null);
+         report_fatal_error("Vari??vel n??o declarada [" + id + "]",null);
       }    
 
          System.out.print("for("+ id +" = "+ n1 +";"+ id +" < "+ n2 +";"+ id+ " += "+ n3 +")");
@@ -472,12 +472,12 @@ public class parser extends java_cup.runtime.lr_parser {
         format_code(pos); 
          TabelaSimbolo t1 = dicionario.get(value);  
       if(t1 == null) {
-         report_fatal_error("Variável não declarada [" + value + "]",null);
+         report_fatal_error("Vari??vel n??o declarada [" + value + "]",null);
       }   
        System.out.print("while("+value+")");
     }
 
-    /* métodos auxiliares */
+    /* m??todos auxiliares */
     public String checkExpr(String e1, String e2){   
         String tipoE1 = "", tipoE2 = "";                                                      
 
@@ -485,7 +485,7 @@ public class parser extends java_cup.runtime.lr_parser {
             TabelaSimbolo t1 = dicionario.get(e1);  
 
              if(t1 == null) {
-                 report_fatal_error("Variável não declarada [" + e1 + "]",null);
+                 report_fatal_error("Vari??vel n??o declarada [" + e1 + "]",null);
                 }
 
             tipoE1 = t1.getTipo();    
@@ -494,7 +494,7 @@ public class parser extends java_cup.runtime.lr_parser {
             if(e2 != null){
                 TabelaSimbolo t2 = dicionario.get(e2);  
                 if(t2 == null) {
-                 report_fatal_error("Variável não declarada [" + e2 + "]",null);
+                 report_fatal_error("Vari??vel n??o declarada [" + e2 + "]",null);
                 }
 
                 tipoE2 = t2.getTipo(); 
@@ -505,7 +505,7 @@ public class parser extends java_cup.runtime.lr_parser {
         if(! tipoE2.equals("")){
 
             if(! tipoE1.equals(tipoE2)){
-                report_fatal_error("Linguagem não permite operações com tipos diferentes !",null);
+                report_fatal_error("Linguagem n??o permite opera????es com tipos diferentes !",null);
             }
         }
 

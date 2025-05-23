@@ -137,19 +137,19 @@ parser code {:
 
         format_code(pos);  
 
-     TabelaSimbolo t1 = dicionario.get(id);  
-      if(t1 == null) {
-         report_fatal_error("Variável não declarada [" + id + "]",null);
-      }  
+        TabelaSimbolo t1 = dicionario.get(id);  
+        if(t1 == null) {
+          report_fatal_error("Variável não declarada [" + id + "]",null);
+        }  
 
-      String tipo = t1.getTipo();
+        String tipo = t1.getTipo();
 
-         if(tipo.equals("INT")) {
-           System.out.print("printf(\"\\n%d\"," + id + ")") ;
-         } else {
-            System.out.print("printf(\"\\n%f\"," + id + ")") ;
-         }   
-      }
+        if(tipo.equals("INT")) {
+          System.out.print("printf(\"\\n%d\"," + id + ")") ;
+        } else {
+          System.out.print("printf(\"\\n%f\"," + id + ")") ;
+        }   
+    }
 
     public void emit_leia(String id){
 
