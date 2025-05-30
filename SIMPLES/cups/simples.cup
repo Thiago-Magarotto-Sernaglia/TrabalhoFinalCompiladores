@@ -189,8 +189,13 @@ parser code {:
       if(t1 == null) {
          report_fatal_error("Variável não declarada [" + id + "]",null);
       }    
+      int passo = Integer.parseInt(n3);
 
-         System.out.print("for("+ id +" = "+ n1 +";"+ id +" < "+ n2 +";"+ id+ " += "+ n3 +")");
+      if(passo >= 0){
+        System.out.print("for("+ id +" = "+ n1 +";"+ id +" < "+ n2 +";"+ id+ " += "+ n3 +")");
+      }else{
+        System.out.print("for("+ id +" = "+ n1 +";"+ id +" > "+ n2 +";"+ id+ " += "+ n3 +")");
+      }
       
     }
 
@@ -337,7 +342,7 @@ elsepart      ::=  ELSEE      {: emit_endblock(); emit_else(); emit_startblock()
                    | /* empty */
                    ;
 
-for         ::= PARA ID:id DE INTT:n1 ATE INTT:n2 PASSO INTT:n3 FACA {: emit_for(id,n1,n2,n3); emit_startblock();  :}
+for         ::= PARA ID:id DE expr:n1 ATE expr:n2 PASSO expr:n3 FACA {: emit_for(id,n1,n2,n3); emit_startblock();  :}
                 list_command
                 FIMPARA {:  emit_endblock(); :}
             ;
@@ -360,6 +365,7 @@ expr     ::= expr:e1 PLUS expr:e2         {: RESULT =  e1 + "+" + e2;  dicionari
            | expr:e1 E expr:e2            {: RESULT =  e1 + "&&" + e2; dicionario.put(RESULT,new TabelaSimbolo(checkExpr(e1,e2),false)); :}
            | expr:e1 OU expr:e2           {: RESULT =  e1 + "||" + e2; dicionario.put(RESULT,new TabelaSimbolo(checkExpr(e1,e2),false)); :}
            | NAO expr:e1                 {: RESULT =   "!" + e1;    ;                    :}
+           | MINUS expr:e1                {: RESULT =  "-" + e1;     ;                   :}
            | LPAREN  
              expr:e1                      {: RESULT =  "(" + e1  + ")"; dicionario.put(RESULT,new TabelaSimbolo(checkExpr(e1,null),false));:} 
              RPAREN   
