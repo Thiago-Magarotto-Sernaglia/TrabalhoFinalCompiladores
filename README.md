@@ -5,7 +5,7 @@
 - **Projeto**: Finalizar a implementação do SIMPLES
 - **Composição do Grupo**: 2 alunos
 - **Prazo Final**: 04/07/2025
-
+#DESCRI
 ## Implementações a serem realizadas
 
 1. **Implementar o comando `escreva`**
