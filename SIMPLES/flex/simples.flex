@@ -29,7 +29,8 @@ LineTerminator = \r|\n|\r\n
 WhiteSpace     = {LineTerminator} | [ \t\f]
 integer   =   {digit}+
 float = {integer}\.{integer}
-identifier = [A-Za-z_][A-Za-z_0-9]*     
+identifier = [A-Za-z_][A-Za-z_0-9]* 
+text = text = \"[^\"]*\"
 
 commentinicio   = \/\*
 commentfim      = \*\/
@@ -85,6 +86,8 @@ comment =  {commentinicio}{commentbody}{commentfim} | \/\/[a-zA-Z0-9 \t]*
     {identifier}       { return symbol(sym.ID, yytext());} 
     {WhiteSpace}       { /* just skip what was found, do nothing */ }   
     {comment}          { /* just skip what was found, do nothing */ }   
+    {text}             { return symbol(sym.TEXT, yytext()); }
+
 }
 
 [^]                    { System.err.println("Error: Caracter Ilegal <"+yytext()+"> na linha: " + yyline); }

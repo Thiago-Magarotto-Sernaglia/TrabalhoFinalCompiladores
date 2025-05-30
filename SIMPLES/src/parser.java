@@ -431,10 +431,17 @@ public class parser extends java_cup.runtime.lr_parser {
 
         format_code(pos);  
 
+<<<<<<< HEAD
         TabelaSimbolo t1 = dicionario.get(id);  
         if(t1 == null) {
           report_fatal_error("Vari??vel n??o declarada [" + id + "]",null);
         }  
+=======
+     TabelaSimbolo t1 = dicionario.get(id);  
+      if(t1 == null) {
+         report_fatal_error("Vari??vel n??o declarada [" + id + "]",null);
+      }  
+>>>>>>> c14a07cb9e18ce594d89972a53b865e808a16277
 
         String tipo = t1.getTipo();
 
