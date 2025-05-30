@@ -55,5 +55,7 @@ inicio
       escreva i;
     fimpara 
 
+    escreva "Olá, Mundo!";
+
 fim
 

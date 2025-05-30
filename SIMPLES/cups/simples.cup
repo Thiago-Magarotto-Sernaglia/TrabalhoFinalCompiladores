@@ -152,7 +152,7 @@ parser code {:
     }
     public void emit_texto(String t){
         format_code(pos);
-        System.out.print("printf(\" " +t+ "\")"));
+        System.out.print("printf(\" " +t+ "\")");
     }
 
     public void emit_leia(String id){
@@ -329,7 +329,8 @@ writel      ::= WRITELINE
                 SEMI       {: emit_semi();          :}
                 |
                 WRITELINE
-                TEXTO:t {:emit_texto(t);:}
+                TEXTO:t    {:emit_texto(t);:}
+                SEMI       {: emit_semi();          :}
             ;
 
 readl      ::= READLINE 

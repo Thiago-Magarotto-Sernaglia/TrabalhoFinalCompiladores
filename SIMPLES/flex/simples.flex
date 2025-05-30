@@ -86,7 +86,7 @@ comment =  {commentinicio}{commentbody}{commentfim} | \/\/[a-zA-Z0-9 \t]*
     {identifier}       { return symbol(sym.ID, yytext());} 
     {WhiteSpace}       { /* just skip what was found, do nothing */ }   
     {comment}          { /* just skip what was found, do nothing */ }   
-    {text}             { return symbol(sym.TEXT, yytext()); }
+    {text}             { return symbol(sym.TEXTO, yytext()); }
 
 }
 
