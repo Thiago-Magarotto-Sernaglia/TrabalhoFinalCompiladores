@@ -29,7 +29,8 @@ LineTerminator = \r|\n|\r\n
 WhiteSpace     = {LineTerminator} | [ \t\f]
 integer   =   {digit}+
 float = {integer}\.{integer}
-identifier = [A-Za-z_][A-Za-z_0-9]*     
+identifier = [A-Za-z_][A-Za-z_0-9]*
+text = text = \"[^\"]*\"
 
 commentinicio   = \/\*
 commentfim      = \*\/
