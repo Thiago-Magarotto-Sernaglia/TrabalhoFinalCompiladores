@@ -451,7 +451,7 @@ public class parser extends java_cup.runtime.lr_parser {
     }
     public void emit_texto(String t){
         format_code(pos);
-        System.out.print("printf(\" " +t+ "\")");
+        System.out.print("printf(" +t+ ")");
     }
 
     public void emit_leia(String id){
@@ -861,7 +861,7 @@ class CUP$parser$actions {
 		int tleft = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).left;
 		int tright = ((java_cup.runtime.Symbol)CUP$parser$stack.peek()).right;
 		String t = (String)((java_cup.runtime.Symbol) CUP$parser$stack.peek()).value;
-emit_texto(t);
+emit_texto(t);         
               CUP$parser$result = parser.getSymbolFactory().newSymbol("NT$6",20, ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$parser$stack.peek()), RESULT);
             }
           return CUP$parser$result;

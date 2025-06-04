@@ -8,13 +8,10 @@ int main(){
    int f;
    int i;
    float d;
-java.lang.ArrayIndexOutOfBoundsException: Index 65533 out of bounds for length 128
-	at SimplesLexer.next_token(Unknown Source)
    scanf("%d",&a);
    scanf("%d",&c);
    scanf("%d",&f);
-   scanf("%f",&d);	at java_cup.runtime.lr_parser.scan(lr_parser.java:366)
-
+   scanf("%f",&d);
    b=(a+b)*c/c;
    f=5+2;
    c=c+f*5;
@@ -22,9 +19,7 @@ java.lang.ArrayIndexOutOfBoundsException: Index 65533 out of bounds for length 1
    printf("\n%d",f);
    printf("\n%d",c);
    printf("\n%f",d);
-	at java_cup.runtime.lr_parser.parse(lr_parser.java:693)
    if(b>f){   
-	at CompiladorSimples.main(Unknown Source)
       printf("\n%d",b);
    }
    else{   
@@ -51,3 +46,5 @@ java.lang.ArrayIndexOutOfBoundsException: Index 65533 out of bounds for length 1
    for(i = 10;i > 1;i += -1){   
       printf("\n%d",i);
    }
+   printf("Ola, Mundo!");
+}

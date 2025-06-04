@@ -84,9 +84,10 @@ comment =  {commentinicio}{commentbody}{commentfim} | \/\/[a-zA-Z0-9 \t]*
     {integer}      { return symbol(sym.INTT,yytext()); }
     {float}    { return symbol(sym.FLOATT, yytext()); }
     {identifier}       { return symbol(sym.ID, yytext());} 
+    {text}             { return symbol(sym.TEXTO, yytext()); }
     {WhiteSpace}       { /* just skip what was found, do nothing */ }   
     {comment}          { /* just skip what was found, do nothing */ }   
-    {text}             { return symbol(sym.TEXTO, yytext()); }
+    
 
 }
 
