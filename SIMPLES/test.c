@@ -32,14 +32,14 @@ int main(){
          }
       }
    }
-   while((b>f&&a<1000)||a<f){   
-      printf("\n%d",f*10);
-      f=f-1;
-      while((b==10)){      
-         printf("\n%d",b);
-         b=b-2;
-      }
-   }
+   // while((b>f&&a<1000)||a<f){   
+   //    printf("\n%d",f*10);
+   //    f=f-1;
+   //    while((b==10)){      
+   //       printf("\n%d",b);
+   //       b=b-2;
+   //    }
+   // }
    for(i = 1;i < 10;i += 2){   
       printf("\n%d",i);
    }
@@ -47,4 +47,7 @@ int main(){
       printf("\n%d",i);
    }
    printf("Ola, Mundo!");
+   printf("%s\n","Ola, Mundao!");
+   printf("%s\n","Tchau, Mundao!");
+   printf("\n%d\n",a+b);
 }

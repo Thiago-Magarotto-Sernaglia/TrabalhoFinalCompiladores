@@ -57,5 +57,11 @@ inicio
 
     escreva "Ola, Mundo!";
 
+    escreval "Ola, Mundao!";
+    escreval "Tchau, Mundao!";
+
+    escreval a + b;
+
+
 fim
 

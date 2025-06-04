@@ -59,6 +59,7 @@ comment =  {commentinicio}{commentbody}{commentfim} | \/\/[a-zA-Z0-9 \t]*
     ">"                {  return symbol(sym.GREATER);  }
     "<"                {  return symbol(sym.LESS);     }
     "escreva"          {  return symbol(sym.WRITELINE);}
+    "escreval"         {  return symbol(sym.ESCREVAL);}
     "leia"             {  return symbol(sym.READLINE); }
     "programa"         {  return symbol(sym.PROGRAM);  }
     "inicio"           {  return symbol(sym.STARTPRG); }

@@ -6,47 +6,48 @@
 /** CUP generated class containing symbol constants. */
 public class sym {
   /* terminals */
-  public static final int ATTRIB = 28;
+  public static final int ATTRIB = 29;
   public static final int DIVIDE = 5;
   public static final int READLINE = 16;
-  public static final int FIMENQUANTO = 36;
-  public static final int DE = 30;
+  public static final int FIMENQUANTO = 37;
+  public static final int DE = 31;
+  public static final int ESCREVAL = 18;
   public static final int EQUALS = 10;
   public static final int LPAREN = 6;
   public static final int GREATER = 11;
-  public static final int SEMI = 24;
+  public static final int SEMI = 25;
   public static final int LESS = 12;
   public static final int MINUS = 3;
-  public static final int PASSO = 32;
-  public static final int E = 20;
+  public static final int PASSO = 33;
+  public static final int E = 21;
   public static final int RPAREN = 7;
-  public static final int THENN = 25;
-  public static final int OU = 21;
-  public static final int ATE = 31;
+  public static final int THENN = 26;
+  public static final int OU = 22;
+  public static final int ATE = 32;
   public static final int ENDPRG = 15;
   public static final int PLUS = 2;
-  public static final int ID = 37;
-  public static final int ELSEE = 26;
+  public static final int ID = 38;
+  public static final int ELSEE = 27;
   public static final int EOF = 0;
   public static final int STARTPRG = 14;
-  public static final int ENDELSE = 27;
+  public static final int ENDELSE = 28;
   public static final int error = 1;
   public static final int PROGRAM = 13;
-  public static final int ENQUANTO = 35;
-  public static final int DECLFLOAT = 19;
-  public static final int FIMPARA = 34;
-  public static final int INTT = 38;
-  public static final int FACA = 33;
+  public static final int ENQUANTO = 36;
+  public static final int DECLFLOAT = 20;
+  public static final int FIMPARA = 35;
+  public static final int INTT = 39;
+  public static final int FACA = 34;
   public static final int TIMES = 4;
   public static final int WRITELINE = 17;
   public static final int LBRCKT = 8;
   public static final int RBRCKT = 9;
-  public static final int DECLINT = 18;
-  public static final int PARA = 29;
-  public static final int TEXTO = 40;
-  public static final int FLOATT = 39;
-  public static final int NAO = 22;
-  public static final int IFF = 23;
+  public static final int DECLINT = 19;
+  public static final int PARA = 30;
+  public static final int TEXTO = 41;
+  public static final int FLOATT = 40;
+  public static final int NAO = 23;
+  public static final int IFF = 24;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
@@ -66,6 +67,7 @@ public class sym {
   "ENDPRG",
   "READLINE",
   "WRITELINE",
+  "ESCREVAL",
   "DECLINT",
   "DECLFLOAT",
   "E",
