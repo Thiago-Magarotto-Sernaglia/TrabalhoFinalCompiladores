@@ -150,9 +150,33 @@ parser code {:
           System.out.print("printf(\"\\n%f\"," + id + ")") ;
         }   
     }
+
+    public void emit_escreval(String id){
+
+        format_code(pos);  
+
+        TabelaSimbolo t1 = dicionario.get(id);  
+        if(t1 == null) {
+          report_fatal_error("Variável não declarada [" + id + "]",null);
+        }  
+
+        String tipo = t1.getTipo();
+
+        if(tipo.equals("INT")) {
+          System.out.print("printf(\"\\n%d\\n\"," + id + ")") ;
+        } else {
+          System.out.print("printf(\"\\n%f\\n\"," + id + ")") ;
+        }   
+    }
+
     public void emit_texto(String t){
         format_code(pos);
         System.out.print("printf(" +t+ ")");
+    }
+
+    public void emit_textol(String t){
+        format_code(pos);
+        System.out.print("printf(\"%s\\n\"," + t + ")");
     }
 
     public void emit_leia(String id){
@@ -259,7 +283,7 @@ parser code {:
    
 /* ------------Declaration of Terminals and Non Terminals Section----------- */
 /* Terminals (tokens returned by the scanner). */
-terminal            PLUS, MINUS, TIMES, DIVIDE,  LPAREN, RPAREN, LBRCKT, RBRCKT, EQUALS, GREATER,LESS, PROGRAM, STARTPRG, ENDPRG, READLINE, WRITELINE,DECLINT,DECLFLOAT, E, OU, NAO;
+terminal            PLUS, MINUS, TIMES, DIVIDE,  LPAREN, RPAREN, LBRCKT, RBRCKT, EQUALS, GREATER,LESS, PROGRAM, STARTPRG, ENDPRG, READLINE, WRITELINE, ESCREVAL,DECLINT,DECLFLOAT, E, OU, NAO;
 terminal            IFF, SEMI, THENN,  ELSEE, ENDELSE, ATTRIB, PARA, DE, ATE, PASSO, FACA, FIMPARA, ENQUANTO, FIMENQUANTO;
 terminal String	    ID;
 terminal String     INTT;      
@@ -267,7 +291,7 @@ terminal String     FLOATT;
 terminal String     TEXTO;
 
 /* Non terminals */
-non terminal             program, list_command, command, assign , declare_variable, writel, readl,if,elsepart,for,while;
+non terminal             program, list_command, command, assign , declare_variable, writel, escreval, readl,if,elsepart,for,while;
 non terminal  String    expr,tipo,vetor;      
 
 /* Precedences */
@@ -296,6 +320,7 @@ command ::=    declare_variable
             |  assign
             |  readl
             |  writel
+            |  escreval
             |  if
             |  for
             |  while            
@@ -323,7 +348,14 @@ assign		::=   ID:id
                   SEMI              {: emit_semi(); :}                             
                  ;                                   
 
-                                                                                    
+escreval    ::= ESCREVAL
+                expr:value {: emit_escreval(value);  :}                                                   
+                SEMI       {: emit_semi();          :}
+                |
+                ESCREVAL
+                TEXTO:t    {:emit_textol(t);        :}
+                SEMI       {: emit_semi();          :}
+            ;
 writel      ::= WRITELINE
                 expr:value {: emit_escreva(value);  :}                                                   
                 SEMI       {: emit_semi();          :}
